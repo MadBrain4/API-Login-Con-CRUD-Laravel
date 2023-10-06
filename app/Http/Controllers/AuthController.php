@@ -31,8 +31,8 @@ class AuthController extends Controller
         if (!Auth::attempt($credentials)) {
             return response()->json([
                 'success' => false,
-                'message' => 'Email or password do not match with our records',
-            ], 400);
+                'errors' => 'Email or password do not match with our records',
+            ]);
         }
 
         $user = User::where('email', $request->email)->first();

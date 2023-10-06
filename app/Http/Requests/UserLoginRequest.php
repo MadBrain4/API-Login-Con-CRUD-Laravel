@@ -27,6 +27,6 @@ class UserLoginRequest extends FormRequest
             'success' => false,
             'message' => 'Validation Error',
             'errors' => $validator->errors()
-        ], 400));
+        ]));
     }
 }
