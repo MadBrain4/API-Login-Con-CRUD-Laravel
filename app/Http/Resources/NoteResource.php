@@ -12,6 +12,7 @@ class NoteResource extends JsonResource
     {
         $user = User::find($this->user_id);
         return [
+            'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
             'user' => [
