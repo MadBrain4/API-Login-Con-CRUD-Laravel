@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Nores\NoteUpdateRequest;
 use App\Http\Requests\Notes\NoteStoreRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -30,24 +31,5 @@ class NoteUserController extends Controller
             'message' => 'Note Created',
             'data' => new NoteResource($notes)
         ], 201);
-    }
-
-    public function show(Note $note) : JsonResource
-    {
-
-        return new NoteResource($note);
-    }
-
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

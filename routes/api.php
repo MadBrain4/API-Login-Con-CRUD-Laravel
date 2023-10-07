@@ -27,6 +27,6 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware(['auth:sanctum'])->group(function() {
     Route::resource('/users', UserController::class)->except(['create', 'edit']);
-    Route::get('/notes', [NoteController::class, 'index']);
-    Route::resource('users.notes', NoteUserController::class)->except(['create', 'edit']);
+    Route::resource('/notes', NoteController::class)->only(['index', 'show', 'update', 'destroy']);
+    Route::resource('users.notes', NoteUserController::class)->only(['index', 'store']);
 });
