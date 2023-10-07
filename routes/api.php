@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\NoteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\NoteUserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +27,6 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware(['auth:sanctum'])->group(function() {
     Route::resource('/users', UserController::class)->except(['create', 'edit']);
+    Route::get('/notes', [NoteController::class, 'index']);
+    Route::resource('users.notes', NoteUserController::class)->except(['create', 'edit']);
 });

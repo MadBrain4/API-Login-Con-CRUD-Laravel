@@ -17,7 +17,7 @@ class Note extends Model
     public $incrementing = true;
     protected $table = 'notes';
 
-    protected function users () : BelongsTo
+    protected function user () : BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
