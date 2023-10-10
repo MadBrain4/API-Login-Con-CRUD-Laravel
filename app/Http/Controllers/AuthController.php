@@ -44,4 +44,12 @@ class AuthController extends Controller
             'access_token' => $user->createToken('API TOKEN')->plainTextToken
         ]);
     }
+
+    public function logout () : JsonResponse
+    {
+        Auth::logout();
+        return response()->json([
+            'message' => 'Session Closed'
+        ]);
+    }
 }
